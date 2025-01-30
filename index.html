@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -10,101 +11,115 @@
 
   <style> 
 
-  /* Fontin valinta ja sivun taustaväri*/
+      /* Fontin valinta ja sivun taustaväri*/
   
-  body {
-    font-family: "Playfair Display", sans-serif;
-    background-color: #1c3f38;
-  }
-   /* taustan väri */
+      body {
 
-    .navbar-custom {
+          font-family: "Playfair Display", sans-serif;
+          background-color: #1c3f38;
+          
+      }
 
-    background-color: rgb(0, 0, 0);
+      /* taustan väri */
 
-    }
+      .navbar-custom {
 
-    /* brandin ja tekstin väri */
+          background-color: rgb(0, 0, 0);
 
-    .navbar-custom .navbar-brand,
+      }
 
-    .navbar-custom .navbar-text{
+      /* brandin ja tekstin väri */
 
-    color: rgb(255, 255, 255);
+      .navbar-custom .navbar-brand,
 
-    }
+      .navbar-custom .navbar-text {
 
-    /* linkin väri */
+          color: rgb(255, 255, 255);
 
-    .navbar-custom .navbar-nav .nav-link {
+      }
 
-    color: rgb(255, 255, 255);
+      /* linkin väri */
 
-    }
+      .navbar-custom .navbar-nav .nav-link {
 
-    /* aktiivisen & hover-linkin väri */
+          color: rgb(255, 255, 255);
 
-    .navbar-custom .nav-item.active .nav-link,
+      }
 
-    .navbar-custom .nav-item:hover .nav-link {
+      /* aktiivisen & hover-linkin väri */
 
-    color: #ffffff;
+       .navbar-custom .nav-item.active .nav-link,
 
-    } 
+       .navbar-custom .nav-item:hover .nav-link {
 
-    .custom-toggler .navbar-toggler-icon { 
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); }
+          color: #9e9d9d;
+
+      } 
+
+      .custom-toggler .navbar-toggler-icon { 
+
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); }
+      
       .custom-toggler.navbar-toggler {
 
-border-color: rgb(255, 255, 255);
+          border-color: rgb(255, 255, 255);
 
-}
-.nav-item .dropdown-menu a:hover {
+      }
 
-color: white !important;
+      .nav-item .dropdown-menu a:hover {
 
-background: #1c3f38 !important;
+          color: white !important;
 
-cursor: pointer;
+          background: #1c3f38 !important;
 
-}
-.nav-link.active {
+          cursor: pointer;
 
-color: #858585 !important;
+      }
+      
+      .nav-link.active {
 
-}
+          color: #858585 !important;
 
-body { position: relative;}
+      }
 
-/* karusellin nuolen väri */
+      body { 
 
+          position: relative;
+      
+      }
 
-.carousel-control-prev-icon {
+      /* karusellin nuolen väri */
 
-background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFEEF' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+      .carousel-control-prev-icon {
 
-}
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFEEF' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
 
-/* karusellin nuolen väri */
+      }
 
-.carousel-control-next-icon {
+      /* karusellin nuolen väri */
 
-background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFEEF' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+      .carousel-control-next-icon {
 
-} .carousel-container {
-  padding-top:60px;
-  position: relative;
-} 
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFEEF' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 
-.sisältö {
-  padding: 60px;
-  text-align: center;
-  background: #1c3f38;
-  color: white;
-  font-size: 30px;
+      } .carousel-container {
+
+          padding-top:60px;
+          position: relative;
+
+      } 
+
+      /* Taustan väri, tilaa fontille, fontin koko ja väri */
+
+      .sisältö {
+
+          padding: 60px;
+          text-align: center;
+          background: #1c3f38;
+          color: white;
+          font-size: 30px;
   
-  
-}
+      }
 
     </style>
 

@@ -10,110 +10,111 @@
 
   <style> 
 
-  /* Fontin valinta ja sivun taustaväri*/
+      /* Fontin valinta ja sivun taustaväri*/
   
-  body {
-    font-family: "Playfair Display", sans-serif;
-    background-color: #1c3f38;
-  }
-   /* taustan väri */
+      body {
 
-    .navbar-custom {
+          font-family: "Playfair Display", sans-serif;
+          background-color: #1c3f38;
+          
+      }
 
-    background-color: rgb(0, 0, 0);
+      /* taustan väri */
 
-    }
+      .navbar-custom {
 
-    /* brandin ja tekstin väri */
+          background-color: rgb(0, 0, 0);
 
-    .navbar-custom .navbar-brand,
+      }
 
-    .navbar-custom .navbar-text{
+      /* brandin ja tekstin väri */
 
-    color: rgb(255, 255, 255);
+      .navbar-custom .navbar-brand,
 
-    }
+      .navbar-custom .navbar-text {
 
-    /* linkin väri */
+          color: rgb(255, 255, 255);
 
-    .navbar-custom .navbar-nav .nav-link {
+      }
 
-    color: rgb(255, 255, 255);
+      /* linkin väri */
 
-    }
+      .navbar-custom .navbar-nav .nav-link {
 
-    /* aktiivisen & hover-linkin väri */
+          color: rgb(255, 255, 255);
 
-    .navbar-custom .nav-item.active .nav-link,
+      }
 
-    .navbar-custom .nav-item:hover .nav-link {
+      /* aktiivisen & hover-linkin väri */
 
-    color: #ffffff;
+       .navbar-custom .nav-item.active .nav-link,
 
-    } 
+       .navbar-custom .nav-item:hover .nav-link {
 
-    .custom-toggler .navbar-toggler-icon { 
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); }
+          color: #9e9d9d;
+
+      } 
+
+      .custom-toggler .navbar-toggler-icon { 
+
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); }
+      
       .custom-toggler.navbar-toggler {
 
-border-color: rgb(255, 255, 255);
+          border-color: rgb(255, 255, 255);
 
-}
-.nav-item .dropdown-menu a:hover {
+      }
 
-color: white !important;
+      .nav-item .dropdown-menu a:hover {
 
-background: #1c3f38 !important;
+          color: white !important;
 
-cursor: pointer;
+          background: #1c3f38 !important;
 
-}
-.nav-link.active {
+          cursor: pointer;
 
-color: white !important;
+      }
+      
+      .nav-link.active {
 
-}
+          color: #858585 !important;
 
-body { position: relative;}
+      }
 
-.carousel-control-prev-icon {
+      body { 
 
-background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f00' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+          position: relative;
+      
+      }
+      
+      /* Tilaa ettei sisältö jää navipalkin alle */
 
-}
+      #Kissa {
 
+          padding-top: 120px;  
+      } 
+      
+      /* fontin väri */
 
-.carousel-control-next-icon {
+      #kissateksti {
 
-background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f00' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+          color: white;
 
-} #Kissa {
-  padding-top: 120px;  /* Tilaa ettei sisältö jää navipalkin alle */
-} 
-#otsikko {
-  place-items: center;
-
-} /* fontin väri */
-
- #kissateksti {
-  color: white;
-}
+      }
 
 
     </style>
 
 </head>
+
 <body>
+
   <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+
     <main>
         <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
-        
-
-            
 
             <div class="container-fluid" id="alku">
-            
-            
             <a class="navbar-brand" href="#">
               <img src="images/sissikissa.png" alt="Logo" style="width:40px;" class="rounded-pill">
             </a>
@@ -124,39 +125,40 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
             
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
             
-            <ul class="navbar-nav">
+                <ul class="navbar-nav">
+            
+                    <li class="nav-item">
+            
+                        <a class="nav-link" href="#kissa">Kissa</a>
+            </li>
             
             <li class="nav-item">
-            
-            <a class="nav-link" href="#kissa">Kissa</a>
-            
-            <li class="nav-item">
-            
-            <a class="nav-link" href="muut.html">Muut</a>
+  
+                <a class="nav-link" href="muut.html">Muut</a>
             
             </li>
             
             <li class="nav-item dropdown">
             
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tietoa</a>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tietoa</a>
             
-            <ul class="dropdown-menu">
+                <ul class="dropdown-menu">
             
-            <li><a class="dropdown-item" href="ruokinta.html">Ruokinta</a></li>
+                    <li><a class="dropdown-item" href="ruokinta.html">Ruokinta</a></li>
             
-            <li><a class="dropdown-item" href="yhteystiedot.html">Yhteystiedot</a></li>
+                    <li><a class="dropdown-item" href="yhteystiedot.html">Yhteystiedot</a></li>
             
-            </ul>
+                </ul>
             
             </li>
             
-            </ul>
+        </ul>
             
-            </div>
+    </div>
             
-            </div>
+  </div>
             
-            </nav>
+  </nav>
             <div class="container" id="Kissa">
 
                 <div class="row">
