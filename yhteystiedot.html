@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Yhteystiedot | Eläimet</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,10 +16,11 @@
 
           font-family: "Playfair Display", sans-serif;
           background-color: #1c3f38;
+          position: relative;
           
       }
 
-      /* taustan väri */
+      /* navipalkin väri */
 
       .navbar-custom {
 
@@ -55,6 +56,8 @@
 
       } 
 
+      /* hampurilaisvalikko */
+
       .custom-toggler .navbar-toggler-icon { 
 
           background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); }
@@ -65,26 +68,22 @@
 
       }
 
+      /* navipalkin pudotusvalikko väri */
+
       .nav-item .dropdown-menu a:hover {
 
           color: white !important;
-
           background: #1c3f38 !important;
-
           cursor: pointer;
 
       }
+
+      /* aktiivisen linkin väri */
       
       .nav-link.active {
 
           color: #858585 !important;
 
-      }
-
-      body { 
-
-          position: relative;
-      
       }
       
       /* Tilaa taulukon ja navipalkin väliin */
@@ -101,112 +100,83 @@
 <body>
   <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
     <main>
-        <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
-        
-
-            
-
-            <div class="container-fluid" id="Etusivu">
-            
-            
-            <a class="navbar-brand" href="#">
-              <img src="images/sissikissa.png" alt="Logo" style="width:40px;" class="rounded-pill">
-            </a>
-            <a class="navbar-brand" href="index.html">Eläimet</a>
-            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            
+      <!--Navipalkki-->
+      <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
+        <div class="container-fluid" id="alku">
+          <a class="navbar-brand" href="#">
+            <img src="images/sissikissa.png" alt="Logo" style="width:40px;" class="rounded-pill">
+          </a>
+          <a class="navbar-brand" href="index.html">Eläimet</a>
+          <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
-            
-            <li class="nav-item">
-            
-            <a class="nav-link" href="kissasivu.html">Kissa</a>
-            
-            </li>
-            
-            <li class="nav-item">
-            
-            <a class="nav-link" href="muut.html">Muut</a>
-            
-            </li>
-            
-            <li class="nav-item dropdown">
-            
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tietoa</a>
-            
-            <ul class="dropdown-menu">
-            
-            <li><a class="dropdown-item" href="ruokinta.html">Ruokinta</a></li>
-
-            <li><a class="dropdown-item" href="#yhteystiedot">Yhteystiedot</a></li>
-            
+              <li class="nav-item">
+                <a class="nav-link" href="kissasivu.html">Kissa</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="muut.html">Muut</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tietoa</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#ruokinta">Ruokinta</a></li>
+                  <li><a class="dropdown-item" href="yhteystiedot.html">Yhteystiedot</a></li>
+                </ul>
+              </li>
             </ul>
-            
-            </li>
-            
-            </ul>
-            
-            </div>
-            
-            </div>
-            
-            </nav>
-          
-            <div class="container mt-3" id="Taulukko">
-                <h2>Yhteystiedot</h2>
-                <p>Alapuolelta löydät järjestömme vapaaehtoisten yhteystiedot. Pyrimme vastaamaan kaikkiin kyselyihin 48 tunnin kuluessa.</p>
+          </div>
+        </div>
+      </nav>
+      
+      <!--Taulukko-->
+      <div class="container mt-3" id="Taulukko">
+          <h2>Yhteystiedot</h2>
+          <p>Alapuolelta löydät järjestömme vapaaehtoisten yhteystiedot. Pyrimme vastaamaan kaikkiin kyselyihin 48 tunnin kuluessa.</p>
 
-                <div class="table-responsive">
-                <table class="table table-bordered">
+          <div class="table-responsive">
+              <table class="table table-bordered">
                   <thead>
-                    <tr>
-                      <th>Etunimi</th>
-                      <th>Sukunimi</th>
-                      <th>Rooli</th>
-                      <th>Sähköposti</th>
-                      <th>Puhelin</th>
-                      <th>Osoite</th>
-                     
-
-                      
-                    </tr>
+                      <tr>
+                          <th>Etunimi</th>
+                          <th>Sukunimi</th>
+                          <th>Rooli</th>
+                          <th>Sähköposti</th>
+                          <th>Puhelin</th>
+                          <th>Osoite</th>
+                      </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Pipsa</td>
-                      <td>Possu</td>
-                      <td>Järjestövastaava</td>
-                      <td>pipsapossu@esimerkki.com</td>
-                      <td>123456789</td>
-                      <td>Pipsanpolku 123 A 123</td>
-                    </tr>
-                    <tr>
-                      <td>Nalle</td>
-                      <td>Puh</td>
-                      <td>Vapaaehtoistyöntekijä</td>
-                      <td>nallepuh@esimerkki.com</td>
-                      <td>123456789</td>
-                      <td>Nallentie 456 B 456</td>
-                    </tr>
-                    <tr>
-                      <td>Paavo</td>
-                      <td>Pesusieni</td>
-                      <td>Vapaaehtoistyöntekijä</td>
-                      <td>paavo@esimerkki.com</td>
-                      <td>123456789</td>
-                      <td>Paavonkuja 789 C 789</td>
-                    </tr>
+                      <tr>
+                          <td>Pipsa</td>
+                          <td>Possu</td>
+                          <td>Järjestövastaava</td>
+                          <td>pipsapossu@esimerkki.com</td>
+                          <td>123456789</td>
+                          <td>Pipsanpolku 123 A 123</td>
+                      </tr>
+                      <tr>
+                          <td>Nalle</td>
+                          <td>Puh</td>
+                          <td>Vapaaehtoistyöntekijä</td>
+                          <td>nallepuh@esimerkki.com</td>
+                          <td>123456789</td>
+                          <td>Nallentie 456 B 456</td>
+                      </tr>
+                      <tr>
+                          <td>Paavo</td>
+                          <td>Pesusieni</td>
+                          <td>Vapaaehtoistyöntekijä</td>
+                          <td>paavo@esimerkki.com</td>
+                          <td>123456789</td>
+                          <td>Paavonkuja 789 C 789</td>
+                      </tr>
                   </tbody>
                 </table>
               </div>
             </div>
           
-
-            
-
 </main>
 </body>
 </html>
