@@ -16,10 +16,11 @@
 
           font-family: "Playfair Display", sans-serif;
           background-color: #1c3f38;
+          position: relative;
           
       }
 
-      /* taustan väri */
+      /* navipalkin väri */
 
       .navbar-custom {
 
@@ -55,6 +56,8 @@
 
       } 
 
+      /* hampurilaiskuvio */
+
       .custom-toggler .navbar-toggler-icon { 
 
           background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); }
@@ -64,6 +67,8 @@
           border-color: rgb(255, 255, 255);
 
       }
+
+      /* Navipalkin pudotusvalikon värit */
 
       .nav-item .dropdown-menu a:hover {
 
@@ -75,16 +80,12 @@
 
       }
       
+      /* Linkin väri kun kursori on sen päällä */
+
       .nav-link.active {
 
           color: #858585 !important;
 
-      }
-
-      body { 
-
-          position: relative;
-      
       }
       
       /* Tilaa ettei sisältö jää navipalkin alle */
@@ -107,11 +108,13 @@
 
 </head>
 
-<body>
+
 
   <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
 
     <main>
+
+        <!-- Navipalkki -->
         <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
 
             <div class="container-fluid" id="alku">
@@ -159,6 +162,7 @@
   </div>
             
   </nav>
+            <!-- Grid -->
             <div class="container" id="Kissa">
 
                 <div class="row">
