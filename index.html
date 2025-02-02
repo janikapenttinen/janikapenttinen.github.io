@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 
 <head>
-  <title>Bootstrap Example</title>
+  <title>Eläimet</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,10 +17,11 @@
 
           font-family: "Playfair Display", sans-serif;
           background-color: #1c3f38;
+          position: relative;
           
       }
 
-      /* taustan väri */
+      /* navipalkin väri */
 
       .navbar-custom {
 
@@ -56,6 +57,8 @@
 
       } 
 
+      /* hampurilaisvalikko */
+
       .custom-toggler .navbar-toggler-icon { 
 
           background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); }
@@ -66,6 +69,8 @@
 
       }
 
+      /* navipalkin pudotusvalikko värit*/
+
       .nav-item .dropdown-menu a:hover {
 
           color: white !important;
@@ -75,17 +80,13 @@
           cursor: pointer;
 
       }
+
+      /* aktiivinen linkki */
       
       .nav-link.active {
 
           color: #858585 !important;
 
-      }
-
-      body { 
-
-          position: relative;
-      
       }
 
       /* karusellin nuolen väri */
@@ -128,63 +129,41 @@
   <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
 
     <main>
-        <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
-        
-
-            
-
-            <div class="container-fluid" id="alku">
-            
-            
-            <a class="navbar-brand " href="#">
-              <img src="images/sissikissa.png" alt="Logo" style="width:40px;" class="rounded-pill">
-            </a>
-            <a class="navbar-brand" href="#etusivu">Eläimet</a>
-            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            
+        <!--Navipalkki-->
+      <nav class="navbar navbar-expand-sm navbar-custom fixed-top">
+        <div class="container-fluid" id="alku">
+          <a class="navbar-brand" href="#">
+            <img src="images/sissikissa.png" alt="Logo" style="width:40px;" class="rounded-pill">
+          </a>
+          <a class="navbar-brand" href="index.html">Eläimet</a>
+          <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
-            
-            <li class="nav-item">
-            
-            <a class="nav-link" href="kissasivu.html">Kissa</a>
-            
-            </li>
-            
-            <li class="nav-item">
-            
-            <a class="nav-link" href="muut.html">Muut</a>
-            
-            </li>
-            
-            <li class="nav-item dropdown">
-            
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tietoa</a>
-            
-            <ul class="dropdown-menu">
-            
-            <li><a class="dropdown-item" href="ruokinta.html">Ruokinta</a></li>
-            
-            <li><a class="dropdown-item" href="yhteystiedot.html">Yhteystiedot</a></li>
-            
+              <li class="nav-item">
+                <a class="nav-link" href="kissasivu.html">Kissa</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="muut.html">Muut</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Tietoa</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#ruokinta">Ruokinta</a></li>
+                  <li><a class="dropdown-item" href="yhteystiedot.html">Yhteystiedot</a></li>
+                </ul>
+              </li>
             </ul>
-            
-            </li>
-            
-            </ul>
-            
-            </div>
-            
-            </div>
-            
-            </nav>
+          </div>
+        </div>
+      </nav>
+
+          <!--Kuvakaruselli-->
           <div class="carousel-container">
             <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
-              <!-- Indicators/dots -->
+              <!-- Alanapit -->
               <div class="carousel-indicators">
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
@@ -192,7 +171,7 @@
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
               </div>
               
-              <!-- The slideshow/carousel -->
+              <!-- Kuvat -->
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <img src="images/kissa.png" alt="Kissa" class="d-block" style="width:100% ">
@@ -226,8 +205,8 @@
                   </div>  
                 </div>
               </div>
-            </div>
-              <!-- Left and right controls/icons -->
+              </div>
+              <!-- Nuolet -->
               <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
               </button>
