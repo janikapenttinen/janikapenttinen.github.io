@@ -15,7 +15,42 @@
 <body>
 
     <div id="vastaus">
-        <script></script>
+        <script>
+
+        function kerro(data){
+
+        var teksti = "";
+
+        teksti = "<h1>" + data.otsikko + "</h1>";
+
+        teksti = teksti +"<p>"+"<b>"+"Yhteysteidot" +"</b>"+"<br>"
+
+        + data.kuvaus.kuva + "<br>"
+
+        + data.opintojakso.nimi + "</p>";
+
+        document.getElementById("vastaus").innerHTML = teksti;
+
+}
+            fetch('JSONIA/tietoja.json')
+            .then(function (response) {
+
+        return response.json();
+
+
+        }) 
+        .then(function (responseJson) {
+
+                kerro(responseJson);
+
+        }) 
+        .catch(function (error) {
+
+            document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+
+
+    })
+        </script>
     </div>
 
 </body>
