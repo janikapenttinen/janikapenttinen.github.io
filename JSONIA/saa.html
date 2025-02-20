@@ -21,34 +21,18 @@
         function kerro(data){
 
         var teksti = "";
-
-        teksti = "<h1>" + data.toteutus + "</h1>";
-
-        teksti = teksti +"<h2>"+"<b>"+"Toteutuksen tiedot" +"</b>"+ "</h2>" +"<br>"
-
-        teksti = teksti +"<p>"+"<b>"+"Osallistujien lukumäärä:" +"</b>"+"<br>"
         
-        teksti = teksti + data.osallistujien_lukumaara + "</p>";
+        teksti = teksti + "Kaupunki: " + data.name + "<br>";
+        teksti = teksti + "Sää: " + data.weather[0].description + "<br>"; 
+        teksti = teksti + "Lämpötila: " + (data.main.temp - 273).toFixed(2) + "°C" + "<br>";
+        teksti = teksti + "Tuulen nopeus: " +  data.wind.speed + " m/s<p>";
 
-        teksti = teksti + "<b>Osallistujat:</b><br>" + data.osallistujien_nimet.join("<br>") + "</p>";
-
-        teksti = teksti +"<p>"+"<b>"+"Toteutuksen ajankohta:" +"</b>"+"<br>"
-
-        teksti = teksti + data.toteutuksen_aikavali + "</p>";
-
-        teksti = teksti +"<p>"+"<b>"+"Toteutuksen kesto viikkoina:" +"</b>"+"<br>"
-
-        teksti = teksti + data.toteutuksen_kesto_viikkoina + "</p>";
-
-
-        teksti = teksti + '<img src="' + data.kuva + '" alt="Logo" style="max-width:100%;">';
-
-
+      
 
         document.getElementById("vastaus").innerHTML = teksti;
 
 }
-            fetch('toteutus_tiedot.json')
+            fetch('https://api.openweathermap.org/data/2.5/weather?lat=60.1699&lon=24.9384&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi')
             .then(function (response) {
 
         return response.json();
