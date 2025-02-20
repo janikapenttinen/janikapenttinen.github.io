@@ -41,7 +41,8 @@
         teksti = teksti + data.toteutuksen_kesto_viikkoina + "</p>";
 
 
-        teksti = teksti + data.kuva + "<br>"
+        teksti = teksti + '<img src="' + data.kuva + '" alt="Logo" style="max-width:100%;">';
+
 
 
         document.getElementById("vastaus").innerHTML = teksti;
@@ -69,5 +70,9 @@
     </div>
 
 </body>
+
+<nav>
+    <a href="kurssi.html">Edellinen sivu</a>
+</nav>
 
 </html>

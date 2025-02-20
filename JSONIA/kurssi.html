@@ -24,11 +24,24 @@
 
         teksti = "<h1>" + data.otsikko + "</h1>";
 
-        teksti = teksti +"<p>"+"<b>"+"Yhteystiedot" +"</b>"+"<br>"
+        teksti = teksti +"<p>"+"<b>"+"Kuvaus" +"</b>"+"<br>" + data.kuvaus + "<br>"
 
-        + data.kuvaus.kuva + "<br>"
+        teksti = teksti +"<p>" + data.opintojakso.nimi + "</p>";
 
-        + data.opintojakso.nimi + "</p>";
+        teksti = teksti +"<p>" + data.opintojakso.tunnus + "</p>";
+
+        teksti = teksti +"<p>" + data.opintojakso.opintopisteet + " op</p>";
+
+        teksti = teksti + "<b>Opintojakson sisältö:</b><br>" + data.sisalto.join("<br>") + "</p>";
+
+        teksti = teksti + "<b>Tekniikat:</b><br>";
+        data.tekniikat.forEach(tekniikka => {
+        teksti = teksti + "<p><b>" + tekniikka.aihe + ":</b> <a href='" + tekniikka.linkki + "'>" + tekniikka.linkki + "</a></p>";
+        });
+
+
+
+        teksti = teksti + '<img src="' + data.kuva + '" alt="Luokkahuone" style="max-width:100%;">';
 
         document.getElementById("vastaus").innerHTML = teksti;
 
@@ -55,5 +68,9 @@
     </div>
 
 </body>
+
+<nav>
+        <a href="toteutus.html">Seuraava sivu</a>
+</nav>
 
 </html>
