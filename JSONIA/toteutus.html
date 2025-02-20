@@ -26,9 +26,14 @@
 
         teksti = teksti +"<p>"+"<b>"+"Toteutuksen tiedot" +"</b>"+"<br>"
 
-        + data.kuva + "<br>"
+        teksti = teksti + "<b>Osallistujat:</b><br>" + data.osallistujien_nimet.join("<br>") + "</p>";
 
-        + data.osallistujien_nimet + "</p>";
+        teksti = teksti + data.toteutuksen_aikavali + "</p>";
+
+        teksti = teksti + data.toteutuksen_kesto_viikkoina + "</p>";
+
+        teksti = teksti + data.kuva + "<br>"
+
 
         document.getElementById("vastaus").innerHTML = teksti;
 
