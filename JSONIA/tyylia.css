@@ -1,8 +1,7 @@
-@import url(https://fonts.google.com/share?selection.family=Gloock|Lato:wght@300);
+@import url(https://fonts.googleapis.com/css2?family=Gloock&family=Lato:wght@300&display=swap);
 
 body {
     font-family: 'Gloock','Lato', sans-serif;
-    background-color: #f4f4f4;
     color: #333;
     text-align: center;
 }
@@ -18,7 +17,6 @@ img {
 
 #vastaus {
     padding: 20px;
-    background-color: white;
     border: 1px solid #ddd;
     margin: 20px auto;
     width: 50%;
