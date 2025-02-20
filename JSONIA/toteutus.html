@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="fi">
+
+<head>
+
+  <title>JSON Example</title>  
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="tyylia.css">
+
+  </head>
+
+<body>
+
+    <div id="vastaus">
+        <script>
+
+        function kerro(data){
+
+        var teksti = "";
+
+        teksti = "<h1>" + data.toteutus + "</h1>";
+
+        teksti = teksti +"<p>"+"<b>"+"Toteutuksen tiedot" +"</b>"+"<br>"
+
+        + data.kuva + "<br>"
+
+        + data.osallistujien_nimet + "</p>";
+
+        document.getElementById("vastaus").innerHTML = teksti;
+
+}
+            fetch('toteutus_tiedot.json')
+            .then(function (response) {
+
+        return response.json();
+
+
+        }) 
+        .then(function (responseJson) {
+
+                kerro(responseJson);
+
+        }) 
+        .catch(function (error) {
+
+            document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+
+
+    })
+        </script>
+    </div>
+
+</body>
+
+</html>
