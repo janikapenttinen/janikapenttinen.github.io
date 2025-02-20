@@ -24,9 +24,11 @@
 
         teksti = "<h1>" + data.toteutus + "</h1>";
 
-        teksti = teksti +"<p>"+"<b>"+"Toteutuksen tiedot" +"</b>"+"<br>"
+        teksti = teksti +"<h2>"+"<b>"+"Toteutuksen tiedot" +"</b>"+"<br>"
 
         teksti = teksti +"<p>"+"<b>"+"Osallistujien lukumäärä" +"</b>"+"<br>"
+        
+        teksti = teksti + data.osallistujien_lukumaara + "</p>";
 
         teksti = teksti + "<b>Osallistujat:</b><br>" + data.osallistujien_nimet.join("<br>") + "</p>";
 
@@ -34,9 +36,10 @@
 
         teksti = teksti + data.toteutuksen_aikavali + "</p>";
 
+        teksti = teksti +"<p>"+"<b>"+"Toteutuksen kesto viikkoina" +"</b>"+"<br>"
+
         teksti = teksti + data.toteutuksen_kesto_viikkoina + "</p>";
 
-        teksti = teksti +"<p>"+"<b>"+"Toteutuksen kesto viikkoina" +"</b>"+"<br>"
 
         teksti = teksti + data.kuva + "<br>"
 
