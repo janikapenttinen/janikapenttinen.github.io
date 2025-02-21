@@ -15,10 +15,20 @@
 
 <body>
 
-    <div id="vastaus">
+    <div class="container">
+        <div class="city" id="helsinki">
+            <h2>Helsinki</h2>
+            <div id="vastaus-helsinki"></div>
+        </div>
+
+        <div class="city" id="tampere">
+            <h2>Tampere</h2>
+            <div id="vastaus-tampere"></div>
+        </div>
+    </div>
         <script>
 
-        function kerro(data){
+        function helsinki(data){
 
         var teksti = "";
         
@@ -27,29 +37,53 @@
         teksti = teksti + "Lämpötila: " + (data.main.temp - 273).toFixed(2) + "°C" + "<br>";
         teksti = teksti + "Tuulen nopeus: " +  data.wind.speed + " m/s<p>";
 
-      
-
-        document.getElementById("vastaus").innerHTML = teksti;
+        document.getElementById("vastaus-helsinki").innerHTML += teksti;
 
 }
-            fetch('https://api.openweathermap.org/data/2.5/weather?lat=60.1699&lon=24.9384&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi')
-            .then(function (response) {
 
-        return response.json();
 
+function tampere(data){
+
+var teksti = "";
+
+teksti = teksti + "Kaupunki: " + data.name + "<br>";
+teksti = teksti + "Sää: " + data.weather[0].description + "<br>"; 
+teksti = teksti + "Lämpötila: " + (data.main.temp - 273).toFixed(2) + "°C" + "<br>";
+teksti = teksti + "Tuulen nopeus: " +  data.wind.speed + " m/s<p>";
+
+document.getElementById("vastaus-tampere").innerHTML += teksti;
+
+}  
+fetch('https://api.openweathermap.org/data/2.5/weather?lat=60.1699&lon=24.9384&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi')
+        .then(function (response) {
+                return response.json();
 
         }) 
         .then(function (responseJson) {
-
-                kerro(responseJson);
-
-        }) 
+                helsinki(responseJson);
+        }) 
         .catch(function (error) {
 
-            document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
 
 
-    })
+})  
+fetch('https://api.openweathermap.org/data/2.5/weather?lat=61.4991&lon=23.7871&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi')
+        .then(function (response) {
+            return response.json();
+
+
+}) 
+.then(function (responseJson) {
+
+        tampere(responseJson);
+    }) 
+.catch(function (error) {
+
+document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+
+
+})
         </script>
     </div>
 
