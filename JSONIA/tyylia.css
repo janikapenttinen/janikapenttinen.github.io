@@ -24,21 +24,20 @@ img {
 
  } .container {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: center;
         padding: 20px;
 } #vastaus-helsinki {
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #ddd;
     margin: 20px auto;
-    width: 50%;
+    width: 70%;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 #vastaus-tampere {
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #ddd;
     margin: 20px auto;
-    width: 50%;
+    width: 70%;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 } nav {
     display: flex;
