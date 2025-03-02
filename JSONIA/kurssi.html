@@ -1,79 +1,58 @@
 <!DOCTYPE html>
-
 <html lang="fi">
 
-<head>
-
-  <title>JSON Example</title>  
-
-  <meta charset="utf-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="tyylia.css">
-
-  </head>
+<head> 
+    <title>Kurssi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tyylia.css">
+</head>
 
 <body>
-
-        <nav>
-                <a href="saa.html">Edellinen sivu</a>
-                <span></span>
-                <a href="toteutus.html">Seuraava sivu</a>
-                
-        </nav>
+    <nav>
+        <a href="saa.html">Edellinen sivu</a>
+        <span></span>
+        <a href="toteutus.html">Seuraava sivu</a>
+    </nav>
 
     <div id="vastaus">
         <script>
 
-        function kerro(data){
+            function kerro(data) {
+            var teksti = "";
+            
+            teksti = "<h1>" + data.otsikko + "</h1>";
+            teksti = teksti +"<p>"+"<b>"+"Kuvaus" +"</b>"+"<br>" + data.kuvaus + "<br>"
+            teksti = teksti +"<p>" + data.opintojakso.nimi + "</p>";
+            teksti = teksti +"<p>" + data.opintojakso.tunnus + "</p>";
+            teksti = teksti +"<p>" + data.opintojakso.opintopisteet + " op</p>";
+            teksti = teksti + "<b>Opintojakson sisältö:</b><br>" + data.sisalto.join("<br>") + "</p>";
+            teksti = teksti + "<b>Tekniikat:</b><br>";
+        
+            data.tekniikat.forEach(tekniikka => {
+                teksti = teksti + "<p><b>" + tekniikka.aihe + ":</b> <a href='" + tekniikka.linkki + "'>" + tekniikka.linkki + "</a></p>";
+            });
+            
+            teksti = teksti + '<img src="' + data.kuva + '" alt="Luokkahuone" style="max-width:100%;">';
+            
+            document.getElementById("vastaus").innerHTML = teksti;
 
-        var teksti = "";
+        }
+        // Haetaan data JSON-tiedostosta
 
-        teksti = "<h1>" + data.otsikko + "</h1>";
-
-        teksti = teksti +"<p>"+"<b>"+"Kuvaus" +"</b>"+"<br>" + data.kuvaus + "<br>"
-
-        teksti = teksti +"<p>" + data.opintojakso.nimi + "</p>";
-
-        teksti = teksti +"<p>" + data.opintojakso.tunnus + "</p>";
-
-        teksti = teksti +"<p>" + data.opintojakso.opintopisteet + " op</p>";
-
-        teksti = teksti + "<b>Opintojakson sisältö:</b><br>" + data.sisalto.join("<br>") + "</p>";
-
-        teksti = teksti + "<b>Tekniikat:</b><br>";
-        data.tekniikat.forEach(tekniikka => {
-        teksti = teksti + "<p><b>" + tekniikka.aihe + ":</b> <a href='" + tekniikka.linkki + "'>" + tekniikka.linkki + "</a></p>";
-        });
-
-
-
-        teksti = teksti + '<img src="' + data.kuva + '" alt="Luokkahuone" style="max-width:100%;">';
-
-        document.getElementById("vastaus").innerHTML = teksti;
-
-}
-            fetch('tietoja.json')
+        fetch('tietoja.json')
             .then(function (response) {
-
-        return response.json();
-
-
-        }) 
-        .then(function (responseJson) {
-
+              return response.json();
+            }) 
+            .then(function (responseJson) {
                 kerro(responseJson);
+            }) 
+            .catch(function (error) {
+                document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
 
-        }) 
-        .catch(function (error) {
-
-            document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
-
-
-    })
-        </script>
+            });
+      </script>
     </div>
-
 </body>
 
 </html>

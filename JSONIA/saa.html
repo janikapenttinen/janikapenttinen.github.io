@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-
 <html lang="fi">
 
 <head>
-
-  <title>JSON Example</title>  
-
-  <meta charset="utf-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="tyylia.css">
-
-  </head>
+    <title>Sää</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tyylia.css">
+</head>
 
 <body>
 
@@ -29,9 +24,12 @@
             <div id="vastaus-tampere"></div>
         </div>
     </div>
-        <script>
 
-        function helsinki(data){
+    <script>
+
+        // Helsingin sää
+
+        function helsinki(data) {
 
         var teksti = "";
         
@@ -42,22 +40,23 @@
 
         document.getElementById("vastaus-helsinki").innerHTML += teksti;
 
-}
+    }
+        // Tampereen sää
 
+        function tampere(data){
 
-function tampere(data){
+        var teksti = "";
 
-var teksti = "";
+        teksti = teksti + "Kaupunki: " + data.name + "<br>";
+        teksti = teksti + "Sää: " + data.weather[0].description + "<br>"; 
+        teksti = teksti + "Lämpötila: " + (data.main.temp - 273).toFixed(2) + "°C" + "<br>";
+        teksti = teksti + "Tuulen nopeus: " +  data.wind.speed + " m/s<p>";
 
-teksti = teksti + "Kaupunki: " + data.name + "<br>";
-teksti = teksti + "Sää: " + data.weather[0].description + "<br>"; 
-teksti = teksti + "Lämpötila: " + (data.main.temp - 273).toFixed(2) + "°C" + "<br>";
-teksti = teksti + "Tuulen nopeus: " +  data.wind.speed + " m/s<p>";
+        document.getElementById("vastaus-tampere").innerHTML += teksti;
 
-document.getElementById("vastaus-tampere").innerHTML += teksti;
-
-}  
-fetch('https://api.openweathermap.org/data/2.5/weather?lat=60.1699&lon=24.9384&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi')
+    }  // Haetaan Helsingin sää API:sta
+    
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat=60.1699&lon=24.9384&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi')
         .then(function (response) {
                 return response.json();
 
@@ -66,32 +65,25 @@ fetch('https://api.openweathermap.org/data/2.5/weather?lat=60.1699&lon=24.9384&a
                 helsinki(responseJson);
         }) 
         .catch(function (error) {
+            document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+        
+        });
 
-document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+    // Haetaan Tampereen sää API:sta
 
-
-})  
-fetch('https://api.openweathermap.org/data/2.5/weather?lat=61.4991&lon=23.7871&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi')
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat=61.4991&lon=23.7871&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi')
         .then(function (response) {
             return response.json();
+        }) 
+        .then(function (responseJson) {
+            tampere(responseJson);
+        }) 
+        .catch(function (error) {
+            document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
 
+        });
 
-}) 
-.then(function (responseJson) {
-
-        tampere(responseJson);
-    }) 
-.catch(function (error) {
-
-document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
-
-
-})
-        </script>
-    </div>
-
+    </script>
+</div>
 </body>
-
-
-
 </html>
