@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="fi">
+
+<head>
+
+    <title>JSON Example</title>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="tyylia.css">
+
+</head>
+
+<body>
+
+    <nav>
+        <a href="saa.html">Edellinen sivu</a>
+        <a href="kurssi.html">Seuraava sivu</a>
+    </nav>
+
+    <div id="vastaus">
+        <div id="junat-helsinki"></div>
+        <div id="junat-tampere"></div>
+
+<script>
+
+// Helsingistä lähtevät junat
+
+function naytaHelsinki(data) {
+            
+            var teksti = "";
+
+            
+            for (var i = 0; i < data.length; i++) {
+                
+                for (var j = 0; j < data[i].timeTableRows.length; j++) {
+                    
+                    if (data[i].timeTableRows[j].stationShortCode == "TPE" && data[i].timeTableRows[j].type == "DEPARTURE" && data[i].trainCategory == "Long-distance") {
+
+                        var pvm = data[i].timeTableRows[j].scheduledTime;
+                        var aika = pvm.substr(0, 10) + " kello: " + pvm.substr(11, 5);
+                        var lahtoasema = data[i].timeTableRows[0].stationShortCode; 
+                        var maaranpaa = data[i].timeTableRows[data[i].timeTableRows.length - 1].stationShortCode; 
+
+                        
+                        teksti = teksti + "Lähtöaika: " + aika + "<br>"
+                        teksti = teksti + "Lähtöasema: " + lahtoasema + "<br>"
+                        teksti = teksti + "Määränpää: " + maaranpaa + "<br>"
+                        teksti = teksti + "Junan numero: " + data[i].trainNumber + "<br>"
+                        teksti = teksti + "Junan tyyppi: " + data[i].trainCategory + "<br>";
+                        teksti += "<p>";
+
+                        
+                    }
+                }
+            }
+
+            
+            document.getElementById("junat-helsinki").innerHTML += teksti;
+        }
+
+        // Tampereen kautta kulkevat junat
+
+        function naytaTampere(data) {
+            
+            var teksti = "";
+
+            
+            for (var i = 0; i < data.length; i++) {
+                
+                for (var j = 0; j < data[i].timeTableRows.length; j++) {
+                    
+                    if (data[i].timeTableRows[j].stationShortCode == "TPE" && data[i].timeTableRows[j].type == "DEPARTURE") {
+
+                        
+                        var pvm = data[i].timeTableRows[j].scheduledTime;
+                        var aika = pvm.substr(0, 10) + " kello: " + pvm.substr(11, 5);
+                        var lahtoasema = data[i].timeTableRows[0].stationShortCode; 
+                        var maaranpaa = data[i].timeTableRows[data[i].timeTableRows.length - 1].stationShortCode; 
+
+                        
+                        teksti = teksti + "Lähtöaika: " + aika + "<br>"
+                        teksti = teksti + "Lähtöasema: " + lahtoasema + "<br>"
+                        teksti = teksti + "Määränpää: " + maaranpaa + "<br>"
+                        teksti = teksti + "Junan numero: " + data[i].trainNumber + "<br>"
+                        teksti = teksti + "Junan tyyppi: " + data[i].trainCategory + "<br>";
+                        teksti += "<p>";
+
+                    }
+                }
+            }
+
+            
+            document.getElementById("junat-tampere").innerHTML += teksti;
+        }
+
+        // Haetaan Helsingistä lähtevät junat
+
+        fetch("https://rata.digitraffic.fi/api/v1/live-trains/station/HKI?departing_trains=100&include_nonstopping=false")
+            .then(response => response.json())
+            .then(naytaHelsinki)
+            .catch(() => {
+                document.getElementById("junat-helsinki").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+            });
+
+        
+        // Haetaan Tampereen kautta kulkevat junat 
+
+        fetch("https://rata.digitraffic.fi/api/v1/live-trains/station/tpe?departing_trains=10&include_nonstopping=false")
+            .then(response => response.json())
+            .then(naytaTampere)
+            .catch(() => {
+                document.getElementById("junat-tampere").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+            });
+
+        </script>
+    </div>
+
+</body>
+
+</html>

@@ -45,3 +45,17 @@ img {
     margin: 50px;
 
 }
+#junat-helsinki {
+    padding: 30px;
+    border: 1px solid #ddd;
+    margin: 20px auto;
+    width: 70%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+#junat-tampere {
+    padding: 30px;
+    border: 1px solid #ddd;
+    margin: 20px auto;
+    width: 70%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
