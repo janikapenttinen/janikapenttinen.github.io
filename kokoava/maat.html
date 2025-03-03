@@ -110,7 +110,7 @@
 
         document.getElementById("vastaus").innerHTML = teksti;
 
-       } fetch('https://tapahtumat.hel.fi/fi/haku?categories=museum&isFree=true')
+       } fetch('https://travelpartner.googleapis.com')
        .then(function (response) {
                 return response.json();
 
