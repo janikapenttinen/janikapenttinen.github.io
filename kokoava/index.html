@@ -31,9 +31,9 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
 </head>
 <body>
 
-<div class="p-5 bg-primary text-white text-center">
-  <h1>My First Bootstrap 5 Page</h1>
-  <p>Resize this responsive page to see the effect!</p> 
+<div class="p-5 bg-black text-white text-center">
+  <h1>Janikan matkat</h1>
+   
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -61,7 +61,7 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
       <h2>Minusta</h2>
       <h5>Photo of me:</h5>
       <img src="photos/omakuva2.jpg" class="img-fluid square" alt="portrait">
-      <p>Olen 22-vuotias elämää ja hyvää ruokaa rakastava nuori nainen</p>
+      <p>22-years-old life and food lover</p>
       <h3 class="mt-4">Some Links</h3>
       <p>Lorem ipsum dolor sit ame.</p>
       <ul class="nav nav-pills flex-column">
@@ -78,6 +78,40 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
       </ul>
+
+      <div id="vastaus" class="mt-5">
+        <script>
+           function naytaMaa(data) {
+    
+            var teksti = "";
+    
+            teksti = teksti + data.name.common + ", " +  data.capital +"<br>";
+            teksti = teksti  + "<img src='" + data.flags.png + "' alt='Flag of Spain' style='width: 200px; height: auto;' ><br>";
+        
+            document.getElementById("vastaus").innerHTML = teksti;
+    
+           } fetch('https://restcountries.com/v3.1/name/spain')
+           .then(function (response) {
+                    return response.json();
+    
+            }) 
+            .then(function (responseJson) {
+                    naytaMaa(responseJson[0]);
+            }) 
+            .catch(function (error) {
+    
+    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+    
+            })
+               
+               
+        </script>
+
+      </div>
+
+      
+
+      
       <hr class="d-sm-none">
     </div>
     <div class="col-sm-8">

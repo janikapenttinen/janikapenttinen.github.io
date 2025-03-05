@@ -80,8 +80,36 @@
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
       </ul>
-      <!--REST API -CALL -->
-      <div id="vastaus"></div>
+
+      <div id="vastaus" class="mt-5">
+        <script>
+           function naytaMaa(data) {
+    
+            var teksti = "";
+    
+            teksti = teksti + "Maa: " + data.name.common + "<br>";
+            teksti = teksti + "Pääkaupunki: " + data.capital + "<br>";
+            teksti = teksti  + data.flags.png + "<br>";
+    
+            document.getElementById("vastaus").innerHTML = teksti;
+    
+           } fetch('https://restcountries.com/v3.1/name/spain')
+           .then(function (response) {
+                    return response.json();
+    
+            }) 
+            .then(function (responseJson) {
+                    naytaMaa(responseJson[0]);
+            }) 
+            .catch(function (error) {
+    
+    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+    
+            })
+               
+               
+        </script>
+      
       <hr class="d-sm-none">
     </div>
     <div class="col-sm-8">
