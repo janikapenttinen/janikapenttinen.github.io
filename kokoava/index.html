@@ -7,10 +7,26 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <style>
+
   .fakeimg {
     height: 200px;
     background: #aaa;
   }
+  /* karusellin nuolen väri */
+
+  .carousel-control-prev-icon {
+
+background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFEEF' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+
+}
+
+/* karusellin nuolen väri */
+
+.carousel-control-next-icon {
+
+background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFEEF' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+
+}
   </style>
 </head>
 <body>
@@ -78,8 +94,37 @@
       <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
     </div>
   </div>
-</div>
 
+  
+
+<div id="myCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+  <!-- Indicators -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+  </div>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+   
+    <div class="carousel-item active">
+      <img src="photos/kissat_kreikassa2.jpg" alt="Chicago" class="d-block w-100">
+    </div>
+
+    <div class="carousel-item">
+      <img src="photos/kreikka_laiva.jpg" alt="New York" class="d-block w-100">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+</div>
 <div class="mt-5 p-4 bg-dark text-white text-center">
   <p>Footer</p>
 </div>
