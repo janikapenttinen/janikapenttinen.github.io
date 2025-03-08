@@ -49,7 +49,7 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
         <a class="nav-link" href="#">Link</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href="#">Disabled</a>
       </li>
     </ul>
   </div>
@@ -62,49 +62,39 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
       <h5>Photo of me:</h5>
       <img src="photos/omakuva2.jpg" class="img-fluid square" alt="portrait">
       <p>22-years-old life and food lover</p>
-      <h3 class="mt-4">Some Links</h3>
-      <p>Lorem ipsum dolor sit ame.</p>
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
+      
 
       <div id="vastaus" class="mt-5">
         <script>
-           function naytaMaa(data) {
+           function naytaMaa(maat) {
     
             var teksti = "";
     
-            teksti = teksti + data.name.common + ", " +  data.capital +"<br>";
-            teksti = teksti  + "<img src='" + data.flags.png + "' alt='Flag of Spain' style='width: 200px; height: auto;' ><br>";
-        
+            maat.forEach(function(maa) {
+
+              teksti += "<img src='" + maa.flags.png + "' alt='Flag of " + maa.name.common + "' style='width: 200px; height: auto;'><br>";
+            });
+
             document.getElementById("vastaus").innerHTML = teksti;
     
-           } fetch('https://restcountries.com/v3.1/name/spain')
-           .then(function (response) {
-                    return response.json();
-    
-            }) 
-            .then(function (responseJson) {
-                    naytaMaa(responseJson[0]);
-            }) 
+            } 
+            
+            const maiden_nimet= ["spain", "germany", "greece", "denmark", "estonia", "sweden"];
+
+            Promise.all(maiden_nimet.map(name => 
+              fetch(`https://restcountries.com/v3.1/name/${name}`)
+                .then(response => response.json())
+                .then(data => data[0])
+            
+            ))
+            .then(countries => naytaMaa(countries))
             .catch(function (error) {
     
-    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+                document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
     
-            })
+            });
                
-               
+        
         </script>
 
       </div>
