@@ -12,6 +12,11 @@
     height: 200px;
     background: #aaa;
   }
+
+  .navbar-custom {
+
+background-color: rgb(129, 124, 124);
+  }
   /* karusellin nuolen väri */
 
   .carousel-control-prev-icon {
@@ -26,7 +31,14 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
 
 background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFEEF' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 
+} .carousel {
+  width: 100%;
+
+} .carousel-inner img {
+  width: 100%;
+  height: auto;
 }
+
   </style>
 </head>
 <body>
@@ -36,7 +48,7 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
    
 </div>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm navbar-custom navbar-dark">
   <div class="container-fluid">
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -64,39 +76,36 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
       <p>22-years-old life and food lover</p>
       
 
-      <div id="vastaus" class="mt-5">
-        <script>
-           function naytaMaa(maat) {
-    
-            var teksti = "";
-    
-            maat.forEach(function(maa) {
-
-              teksti += "<img src='" + maa.flags.png + "' alt='Flag of " + maa.name.common + "' style='width: 200px; height: auto;'><br>";
-            });
-
-            document.getElementById("vastaus").innerHTML = teksti;
-    
-            } 
-            
-            const maiden_nimet= ["spain", "germany", "greece", "denmark", "estonia", "sweden"];
-
-            Promise.all(maiden_nimet.map(name => 
-              fetch(`https://restcountries.com/v3.1/name/${name}`)
-                .then(response => response.json())
-                .then(data => data[0])
-            
-            ))
-            .then(countries => naytaMaa(countries))
-            .catch(function (error) {
-    
-                document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
-    
-            });
-               
-        
-        </script>
-
+      <div id="myCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+        </div>
+      
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+         
+          <div class="carousel-item active">
+            <img src="photos/rhonda2.jpg" alt="Chicago" class="d-block w-100">
+          </div>
+      
+          <div class="carousel-item">
+            <img src="photos/zia_vuori.JPG" alt="New York" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="photos/malaga.jpg" alt="New York" class="d-block w-100">
+          </div>
+        </div>
+      
+        <!-- Left and right controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
       </div>
 
       
@@ -119,35 +128,38 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
     </div>
   </div>
 
+  <div id="vastaus" class="mt-5">
+    <div id="gallery" class="mt-5 d-flex flex-wrap gap-3"></div>
+    <script>
+    
+        const API_KEY = "bqWnAc8o3zbuSDntVTIZ5W9ywx53KqICh5cbxMkO1LHfAV7qqTrMl1IC"; // Vaihda tämä omaan API-avaimeesi
+    const query = "sweden"; // Voit muuttaa hakusanaa
+    const url = `https://api.pexels.com/v1/search?query=${query}&per_page=1`;
+
+    fetch(url, {
+        headers: {
+            Authorization: API_KEY
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const gallery = document.getElementById("gallery");
+        data.photos.forEach(photo => {
+            const img = document.createElement("img");
+            img.src = photo.src.medium;
+            img.alt = photo.photographer;
+            gallery.appendChild(img);
+        });
+    })
+    .catch(error => console.error("Virhe ladattaessa kuvia:", error));
+
+    </script>
+
+  </div>
+
   
 
-<div id="myCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
-  <!-- Indicators -->
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
-  </div>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-   
-    <div class="carousel-item active">
-      <img src="photos/kissat_kreikassa2.jpg" alt="Chicago" class="d-block w-100">
-    </div>
-
-    <div class="carousel-item">
-      <img src="photos/kreikka_laiva.jpg" alt="New York" class="d-block w-100">
-    </div>
-  </div>
-
-  <!-- Left and right controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
 </div>
 <div class="mt-5 p-4 bg-dark text-white text-center">
   <p>Footer</p>
